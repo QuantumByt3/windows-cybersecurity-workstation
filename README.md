@@ -342,7 +342,7 @@ The workstation baseline has been established and documentation, automation, val
 
 ## License
 
-A project license will be selected before the first public release.
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
