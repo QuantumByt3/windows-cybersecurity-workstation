@@ -22,6 +22,8 @@ A security-focused, reproducible Windows 11 workstation build for cybersecurity 
   - [Security-First Publishing](#security-first-publishing)
   - [Documentation](#documentation)
   - [Automation](#automation)
+    - [Validation Scripts](#validation-scripts)
+    - [Reusable PowerShell Examples](#reusable-powershell-examples)
   - [Intended Audience](#intended-audience)
   - [Contributing](#contributing)
   - [Responsible Use](#responsible-use)
@@ -270,33 +272,37 @@ for additional details.
 
 ## Documentation
 
-Detailed guides will cover:
+Detailed guides for the workstation are available in the `docs/` directory:
 
-- Windows 11 security baseline
-- Development environment setup
-- Git and GitHub configuration
-- Python virtual environments
-- VS Code integration
-- VMware workstation architecture
-- Wireshark and Npcap
-- Sysinternals DFIR toolkit
-- Repository sanitization
-- Troubleshooting
-- Workstation validation
+- [Windows Security Baseline](docs/windows-security-baseline.md)
+- [Development Environment](docs/development-environment.md)
+- [Git and GitHub Workflow](docs/git-github-workflow.md)
+- [Network Analysis](docs/network-analysis.md)
+- [DFIR and Sysinternals](docs/dfir-sysinternals.md)
+- [VMware Workstation Integration](docs/vmware-integration.md)
+- [Workstation Validation](docs/workstation-validation.md)
+- [Troubleshooting](docs/troubleshooting.md)
+- [Tool Manifest](docs/tool-manifest.md)
+- [Repository Sanitization Guide](docs/sanitization-guide.md)
 
 ---
 
 ## Automation
 
-The repository will include PowerShell scripts for tasks such as:
+The repository includes PowerShell scripts for workstation validation, repository safety, and repeatable development setup.
 
-```text
-Get-WorkstationInventory.ps1
-Get-SecurityBaseline.ps1
-Get-NetworkBaseline.ps1
-Test-CyberWorkstation.ps1
-Test-RepositorySafety.ps1
-```
+### Validation Scripts
+
+- [`Test-SecurityBaseline.ps1`](scripts/Test-SecurityBaseline.ps1) — validates the Windows security baseline while handling checks that require elevation.
+- [`Test-NetworkAnalysis.ps1`](scripts/Test-NetworkAnalysis.ps1) — validates Wireshark, TShark, Npcap, capture interfaces, and VMware network adapters.
+- [`Test-SysinternalsToolkit.ps1`](scripts/Test-SysinternalsToolkit.ps1) — validates the installed Sysinternals toolkit, versions, and Microsoft Authenticode signatures.
+- [`Test-RepositorySafety.ps1`](scripts/Test-RepositorySafety.ps1) — scans the repository for publication risks such as secrets, sensitive files, local-only paths, and identifying information.
+
+### Reusable PowerShell Examples
+
+- [`get-tool-versions.ps1`](examples/powershell/get-tool-versions.ps1) — inventories key workstation software and tested tool versions.
+- [`install-development-tools.ps1`](examples/powershell/install-development-tools.ps1) — provides controlled installation and explicit upgrade handling for the development toolchain.
+- [`windows-security-baseline-commands.ps1`](examples/powershell/windows-security-baseline-commands.ps1) — provides reusable commands for inspecting Windows security controls.
 
 The goal is to make workstation configuration **verifiable and repeatable**, not merely documented.
 
@@ -322,6 +328,8 @@ This project may be useful for:
 Contributions, corrections, compatibility updates, documentation improvements, and security-focused enhancements are welcome.
 
 Review the [Contribution Guidelines](CONTRIBUTING.md) before opening an issue or pull request.
+
+See the [Changelog](CHANGELOG.md) for notable project changes.
 
 ---
 

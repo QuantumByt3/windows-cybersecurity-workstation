@@ -1,0 +1,56 @@
+name: Documentation Improvement
+description: Report unclear, inaccurate, outdated, or incomplete documentation.
+title: "[Docs]: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for documentation corrections or improvements.
+
+        Please sanitize any examples, screenshots, or terminal output before submitting.
+
+  - type: input
+    id: document
+    attributes:
+      label: Document
+      description: Which documentation file or section should be changed?
+      placeholder: docs/network-analysis.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is inaccurate, unclear, incomplete, or outdated?
+    validations:
+      required: true
+
+  - type: textarea
+    id: improvement
+    attributes:
+      label: Suggested improvement
+      description: Describe the correction or improvement you recommend.
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Relevant software version
+      description: Include a version when the issue depends on software behavior.
+      placeholder: PowerShell 7.x
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: verification
+    attributes:
+      label: Verification
+      options:
+        - label: I confirmed that this issue applies to the current repository documentation.
+          required: true
+        - label: Any technical output included in this report has been sanitized.
+          required: true

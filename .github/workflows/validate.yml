@@ -1,0 +1,70 @@
+name: Repository Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  powershell-validation:
+    name: PowerShell and Repository Safety
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display PowerShell version
+        shell: pwsh
+        run: |
+          $PSVersionTable.PSVersion
+
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
+
+      - name: Analyze PowerShell scripts
+        shell: pwsh
+        run: |
+          $Files = Get-ChildItem `
+              -Path . `
+              -Recurse `
+              -Include *.ps1, *.psm1, *.psd1 `
+              -File
+
+          $Results = @(
+              foreach ($File in $Files) {
+                  Invoke-ScriptAnalyzer `
+                      -Path $File.FullName `
+                      -Settings .\PSScriptAnalyzerSettings.psd1 `
+                      -Severity Warning,Error
+              }
+          )
+
+          if ($Results.Count -gt 0) {
+              $Results |
+                  Format-Table `
+                      ScriptName,
+                      Line,
+                      Severity,
+                      RuleName,
+                      Message `
+                      -AutoSize
+
+              throw "PSScriptAnalyzer reported one or more warnings or errors."
+          }
+
+          Write-Host "PSScriptAnalyzer completed with no actionable warnings or errors."
+
+      - name: Run repository safety scanner
+        shell: pwsh
+        run: |
+          .\scripts\Test-RepositorySafety.ps1

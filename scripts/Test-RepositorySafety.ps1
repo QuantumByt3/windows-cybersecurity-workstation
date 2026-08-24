@@ -120,9 +120,23 @@ function Test-LocalOnlyPath {
 
     foreach ($Directory in $LocalOnlyDirectories) {
 
+        $NormalizedDirectory = $Directory.TrimEnd(
+            [char[]]@(
+                [System.IO.Path]::DirectorySeparatorChar,
+                [System.IO.Path]::AltDirectorySeparatorChar
+            )
+        )
+
+        $DirectoryPrefix = $NormalizedDirectory +
+            [System.IO.Path]::DirectorySeparatorChar
+
         if (
+            $Path.Equals(
+                $NormalizedDirectory,
+                [System.StringComparison]::OrdinalIgnoreCase
+            ) -or
             $Path.StartsWith(
-                $Directory,
+                $DirectoryPrefix,
                 [System.StringComparison]::OrdinalIgnoreCase
             )
         ) {
@@ -305,7 +319,25 @@ $ForbiddenExtensions = @(
     ".pcapng",
     ".cap",
     ".etl",
-    ".dmp"
+    ".dmp",
+
+    # Forensic / Windows artifacts
+    ".pml",
+    ".evtx",
+    ".reg",
+    ".hiv",
+    ".raw",
+    ".mem",
+
+    # Virtual machine disks and state
+    ".vmdk",
+    ".vhd",
+    ".vhdx",
+    ".qcow2",
+    ".vmem",
+    ".vmss",
+    ".vmsn",
+    ".nvram"
 )
 
 $ReviewExtensions = @(
@@ -904,9 +936,13 @@ Write-Host "FAIL : $FailCount" -ForegroundColor Red
 Write-Host "INFO : $InfoCount" -ForegroundColor Cyan
 Write-Host ""
 
+$ExitCode = 0
+
 if ($FailCount -gt 0) {
 
     Write-Host "Overall Result: DO NOT PUBLISH" -ForegroundColor Red
+
+    $ExitCode = 1
 }
 elseif ($WarnCount -gt 0) {
 
@@ -925,3 +961,5 @@ Write-Host "Always review git status and git diff before committing or pushing."
     -ForegroundColor DarkGray
 
 Write-Host ""
+
+exit $ExitCode

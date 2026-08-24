@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: Security Reporting Guidance
+    url: https://github.com/QuantumByt3/windows-cybersecurity-workstation/blob/main/SECURITY.md
+    about: Review SECURITY.md before reporting a security-sensitive matter.

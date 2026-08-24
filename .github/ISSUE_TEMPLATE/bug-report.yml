@@ -1,0 +1,88 @@
+name: Bug Report
+description: Report a reproducible problem with documentation, scripts, or workstation guidance.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem.
+
+        Before submitting, sanitize all logs, screenshots, paths, and command output.
+        Do not include passwords, tokens, private keys, recovery keys, personal email addresses,
+        private network information, or other sensitive data.
+
+  - type: input
+    id: component
+    attributes:
+      label: Affected component
+      description: Which document, script, or workstation component is affected?
+      placeholder: scripts/Test-NetworkAnalysis.ps1
+    validations:
+      required: true
+
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      description: Provide the relevant Windows version or build if known.
+      placeholder: Windows 11
+    validations:
+      required: true
+
+  - type: input
+    id: tool-version
+    attributes:
+      label: Relevant tool version
+      description: Include the affected software version if applicable.
+      placeholder: Wireshark 4.x
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest reliable sequence that reproduces the problem.
+      placeholder: |
+        1. Open PowerShell 7
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: sanitized-output
+    attributes:
+      label: Sanitized output
+      description: Paste only sanitized error output that materially helps reproduce the problem.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I reviewed this report for credentials, tokens, private keys, recovery information, personal identifiers, and private network data.
+          required: true
+        - label: I have not included raw private packet captures or unsanitized forensic evidence.
+          required: true

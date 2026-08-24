@@ -119,3 +119,28 @@ $RECYCLE.BIN/
 inventory-private.*
 baseline-private.*
 network-private.*
+
+# ------------------------------------------------------------
+# Virtualization artifacts
+# ------------------------------------------------------------
+
+*.vmdk
+*.vhd
+*.vhdx
+*.qcow2
+*.vmem
+*.vmss
+*.vmsn
+*.nvram
+*.lck
+
+# ------------------------------------------------------------
+# Forensic / Windows artifact exports
+# ------------------------------------------------------------
+
+*.pml
+*.evtx
+*.reg
+*.hiv
+*.raw
+*.mem

@@ -1,0 +1,61 @@
+name: Feature Request
+description: Suggest a useful addition to the workstation, documentation, or validation tooling.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Feature requests should improve the security, reproducibility, validation,
+        documentation, or usability of the Windows 11 Cybersecurity Workstation.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or need
+      description: What problem would this feature solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe the feature or workflow you recommend.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Are there simpler or safer approaches that could solve the same problem?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Project area
+      options:
+        - Windows security
+        - PowerShell automation
+        - Development tooling
+        - Git and GitHub
+        - Network analysis
+        - DFIR / Sysinternals
+        - VMware / virtualization
+        - Documentation
+        - Repository safety
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: responsible-use
+    attributes:
+      label: Responsible-use confirmation
+      options:
+        - label: This request is intended for legitimate administration, education, defensive security, research, or authorized testing.
+          required: true
