@@ -1,0 +1,29 @@
+# Normalize text files in the repository.
+# Store text as LF in Git for consistent cross-platform diffs.
+
+* text=auto eol=lf
+
+# Windows-native command scripts require CRLF.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# PowerShell works correctly with LF and may also be used cross-platform.
+*.ps1 text eol=lf
+*.psm1 text eol=lf
+*.psd1 text eol=lf
+
+# Documentation and structured text.
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+
+# Images and archives are binary and must never be line-ending normalized.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.zip binary
+*.7z binary

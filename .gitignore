@@ -1,0 +1,121 @@
+# ============================================================
+# Windows Cybersecurity Workstation
+# Repository Safety / Ignore Rules
+# ============================================================
+
+# ------------------------------------------------------------
+# Secrets and credentials
+# ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+*.key
+*.pem
+*.pfx
+*.p12
+*.cer
+*.crt
+*.ovpn
+
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+known_hosts
+
+# SSH directories
+.ssh/
+
+# ------------------------------------------------------------
+# Explicit secret / credential / recovery exports
+# ------------------------------------------------------------
+secrets.*
+*.secrets
+*.secrets.*
+
+credentials.json
+credentials.yaml
+credentials.yml
+credentials.csv
+credentials.xml
+
+tokens.json
+tokens.yaml
+tokens.yml
+tokens.csv
+
+recovery-keys.txt
+recovery_keys.txt
+bitlocker-recovery.txt
+bitlocker-recovery-*.txt
+bitlocker-recovery-*.csv
+
+# ------------------------------------------------------------
+# Packet captures and potentially sensitive network data
+# ------------------------------------------------------------
+*.pcap
+*.pcapng
+*.cap
+*.etl
+
+# ------------------------------------------------------------
+# Local-only / unsanitized material
+# ------------------------------------------------------------
+private/
+assets/raw-screenshots/
+
+# ------------------------------------------------------------
+# Logs and temporary files
+# ------------------------------------------------------------
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.dmp
+
+# ------------------------------------------------------------
+# PowerShell / local output files
+# ------------------------------------------------------------
+*.clixml
+*.transcript.txt
+
+# ------------------------------------------------------------
+# Python
+# ------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ------------------------------------------------------------
+# VS Code local configuration
+# ------------------------------------------------------------
+.vscode/
+
+# ------------------------------------------------------------
+# Windows-generated files
+# ------------------------------------------------------------
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ------------------------------------------------------------
+# OS / editor clutter
+# ------------------------------------------------------------
+.DS_Store
+
+# ------------------------------------------------------------
+# Archives that may contain raw collected data
+# ------------------------------------------------------------
+*.zip
+*.7z
+*.rar
+
+# ------------------------------------------------------------
+# Local workstation inventory exports
+# ------------------------------------------------------------
+inventory-private.*
+baseline-private.*
+network-private.*
