@@ -23,6 +23,7 @@ A security-focused, reproducible Windows 11 workstation build for cybersecurity 
   - [Documentation](#documentation)
   - [Automation](#automation)
   - [Intended Audience](#intended-audience)
+  - [Contributing](#contributing)
   - [Responsible Use](#responsible-use)
   - [Project Status](#project-status)
   - [License](#license)
@@ -313,6 +314,14 @@ This project may be useful for:
 - CTF participants
 - Security researchers
 - Windows power users
+
+---
+
+## Contributing
+
+Contributions, corrections, compatibility updates, documentation improvements, and security-focused enhancements are welcome.
+
+Review the [Contribution Guidelines](CONTRIBUTING.md) before opening an issue or pull request.
 
 ---
 
