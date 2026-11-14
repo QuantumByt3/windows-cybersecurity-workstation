@@ -1,5 +1,7 @@
 # Windows 11 Cybersecurity Workstation
 
+[Portfolio — Joe B. | QuantumByt3](https://www.quantumbyt3.com)
+
 A security-focused, reproducible Windows 11 workstation build for cybersecurity students, professionals, homelab users, and anyone who wants a capable platform for development, network analysis, digital forensics, virtualization, and authorized security testing.
 
 > This project documents not only **what to install**, but also **why each component is used, how it is validated, and how to configure it without unnecessarily weakening the Windows host**.
@@ -365,6 +367,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Author
 
-**QuantumByt3**
+**Joe B. | QuantumByt3**
 
-Cybersecurity student and practitioner focused on hands-on security engineering, digital forensics, network analysis, and practical cybersecurity education.
+Security+ certified cybersecurity student and Pikes Peak State College Cyber Club President focused on Windows/Linux systems, digital forensics, network analysis, and technical documentation.
